@@ -1,32 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import MyComponent from 'components/MyComponent';
+import { Provider } from 'react-redux';
+import { AppContainer } from 'containers';
+import { createStore } from 'redux';
+import { state } from 'state';
+import { SampleModule } from 'modules';
 
-export interface Props {
-  name: string
-  enthusiasmLevel?: number
-}
-
-interface State {
-  enthusiasmLevel: number
-}
-
-export default class App extends React.Component<any, any> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <MyComponent />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const store = createStore(SampleModule.reducer, state);
+export default () => (
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>
+)
