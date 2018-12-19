@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MyComponent from './components/MyComponent';
+import MyComponent from 'components/MyComponent';
 
 export interface Props {
   name: string
